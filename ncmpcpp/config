@@ -1,0 +1,35 @@
+ncmpcpp_directory = "~/.config/ncmpcpp"
+mpd_host = "localhost"
+mpd_port = "6600"
+# UI Tweaks
+user_interface = classic
+browser_display_mode = columns
+playlist_display_mode = columns
+
+# Visual tweaks
+progressbar_look = "━━╸"
+titles_visibility = yes
+header_visibility = yes
+statusbar_visibility = yes
+colors_enabled = yes
+
+# Colors (Gruvbox vibes)
+color1 = yellow
+color2 = white
+main_window_color = white
+#main_window_highlight_color = yellow
+progressbar_color = yellow
+statusbar_color = yellow
+#header_color = yellow
+
+# Enable lyrics
+lyrics_directory = ~/.lyrics
+
+# Enable visualizer
+visualizer_in_stereo = yes
+visualizer_type = spectrum
+visualizer_look = ▒▒
+visualizer_color = yellow
+
+#
+
