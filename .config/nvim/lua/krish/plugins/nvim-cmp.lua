@@ -42,7 +42,17 @@ return {
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
         ["<C-e>"] = cmp.mapping.abort(), -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
+
+      --override arrow keys
+        ["<Down>"] = function(fallback)
+          fallback()
+        end,
+        ["<Up>"] = function(fallback)
+          fallback()
+        end,
       }),
+
+
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp"},
