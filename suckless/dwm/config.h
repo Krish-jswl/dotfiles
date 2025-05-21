@@ -9,10 +9,10 @@ static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char dmenufont[]       = {"JetBrainsMono Nerd Font:size=10"};
 static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#111111";
-static const char col_gray3[]       = "#eeeeee";
-static const char col_gray4[]       = "#111111";
-static const char col_cyan[]        = "#cdcdcd";
+static const char col_gray2[]       = "#282c34";
+static const char col_gray3[]       = "#abb2bf";
+static const char col_gray4[]       = "#282c34";
+static const char col_cyan[]        = "#61afef";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -62,7 +62,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "wezterm", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
+static const char *screenshot[]  = {"sh","-c", "maim ~/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -80,10 +81,10 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_f,      fullscreen,     {.i = 1} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
@@ -98,6 +99,7 @@ static const Key keys[] = {
   { 0, XF86XK_AudioMute, spawn, SHCMD("pactl set-sink-mute @DEFAULT_SINK@ toggle") },
   { 0, XF86XK_MonBrightnessUp, spawn, SHCMD("brightnessctl set +10%") },
   { 0, XF86XK_MonBrightnessDown, spawn, SHCMD("brightnessctl set 10%-") },
+  { MODKEY|ShiftMask,             XK_p,      spawn,          {.v = screenshot } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

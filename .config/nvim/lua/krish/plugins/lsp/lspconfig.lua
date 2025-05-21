@@ -85,6 +85,26 @@ return {
           capabilities = capabilities,
         })
       end,
+      ["bashls"] = function()
+        require("lspconfig").bashls.setup{
+          capabilities = capabilities,
+        }
+      end,
+      ["html"] = function()
+        require("lspconfig").bashls.setup{
+        capabilities = capabilities,
+      }
+      end,
+      ["cssls"] = function()
+        require("lspconfig").bashls.setup{
+        capabilities = capabilities,
+      }
+      end,
+      ["jsonls"] = function()
+        require("lspconfig").bashls.setup{
+        capabilities = capabilities,
+      }
+      end,
       ["clangd"] = function()
         require("lspconfig").clangd.setup{
           capabilities = capabilities,
