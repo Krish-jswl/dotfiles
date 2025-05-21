@@ -2,8 +2,6 @@
 
 this repo contains all the .dotfiles of my current setup which i have been using on linux.
 
-<p float="left">
-  <img src="screenshots/ss1.png" width="45% />
-    &nbsp;
-  <img src="screenshots/ss2.png" width="45%" />
-</p>
+| ![ss1](screenshots/ss1.png) | ![ss2](screenshots/ss2.png) |
+|:---------------------------:|:---------------------------:|
+| Screenshot 1 | Screenshot 2 |
