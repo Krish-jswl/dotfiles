@@ -2,4 +2,5 @@
 
 this repo contains all the .dotfiles of my current setup which i have been using on linux.
 
-![screenshot of my config](screenshots/ss1.png)
+![screenshot 1](screenshots/ss1.png)
+![screenshot 2](screenshots/ss2.png)
