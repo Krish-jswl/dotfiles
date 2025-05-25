@@ -8,11 +8,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char dmenufont[]       = {"JetBrainsMono Nerd Font:size=10"};
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#282c34";
-static const char col_gray3[]       = "#abb2bf";
-static const char col_gray4[]       = "#282c34";
-static const char col_cyan[]        = "#61afef";
+static const char col_gray1[]       = "#001a1d";
+static const char col_gray2[]       = "#001a1d";
+static const char col_gray3[]       = "#839496";
+static const char col_gray4[]       = "#001a1d";
+static const char col_cyan[]        = "#859900";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -64,12 +64,16 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *screenshot[]  = {"sh","-c", "maim ~/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png", NULL };
+static const char *file[]  = { "thunar", NULL };
+static const char *browser[]  = { "firefox", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_e,      spawn,          {.v = file } },
+	{ MODKEY,                       XK_b,      spawn,          {.v = browser } },
+	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
