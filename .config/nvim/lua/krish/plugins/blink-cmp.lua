@@ -42,6 +42,7 @@ return {
             keymap = {
                 preset = "default",
                 ["<C-Z>"] = { "accept", "fallback" },
+                ["<Tab>"] = { "accept", "fallback" },
                 ["<C-j>"] = { "select_next", "fallback"},
                 ["<C-k>"] = { "select_prev", "fallback"},
                 ["<Up>"] = false,

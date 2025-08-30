@@ -1,7 +1,7 @@
 {
   "position": "bottom",
-  "modules-left": ["niri/workspaces"],
-  "modules-center": ["niri/window"],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
   "sway/workspaces": {
      "format": "{icon}",
         "format-icons": {
