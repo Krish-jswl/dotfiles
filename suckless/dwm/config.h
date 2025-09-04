@@ -8,11 +8,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=10" };
 static const char dmenufont[]       = {"JetBrainsMono Nerd Font:size=10"};
-static const char col_gray1[]       = "#001a1d";
-static const char col_gray2[]       = "#001a1d";
-static const char col_gray3[]       = "#839496";
-static const char col_gray4[]       = "#001a1d";
-static const char col_cyan[]        = "#859900";
+static const char col_gray1[]       = "#1a1b26";
+static const char col_gray2[]       = "#000000";
+static const char col_gray3[]       = "#a9b1d6";
+static const char col_gray4[]       = "#000000";
+static const char col_cyan[]        = "#7dcfff";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -29,10 +29,9 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 2,       0,           -1 },
-	{ "Thunar",   NULL,       NULL,       1 << 4 ,      0,           -1 },
-	{ "Zathura",  NULL,       NULL,       1 << 5 ,      0,           -1 },
-	{ "FreeTube", NULL,       NULL,       0,            0,           -1 },
+	// { "Firefox",  NULL,       NULL,       1 << 2,            0,           -1 },
+	// { "Thunar",   NULL,       NULL,       1 << 4,            0,           -1 },
+	// { "Zathura",  NULL,       NULL,       1 << 5,            0,           -1 },
 };
 
 /* layout(s) */
