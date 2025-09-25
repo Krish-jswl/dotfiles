@@ -11,7 +11,9 @@ opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
 
-opt.wrap = false
+opt.wrap = true
+opt.linebreak = true
+opt.scrolloff = 4
 
 --search settings
 opt.ignorecase = true
@@ -33,3 +35,6 @@ opt.clipboard:append("unnamedplus")
 --split windows
 opt.splitright = true
 opt.splitbelow = true
+
+--disable mode show
+opt.showmode = false

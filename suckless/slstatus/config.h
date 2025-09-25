@@ -65,8 +65,9 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ wifi_essid, "  : %s |", "wlan0" },
+	{ wifi_essid, "  : %s |", "wlp2s0" },
+	{ run_command, " 󰃟 %s%% | ", "~/.local/bin/sl-bri"},
 	{ run_command, " 󰕾 : %s | ", "pactl get-sink-mute @DEFAULT_SINK@ | grep yes > /dev/null && echo -n 'MUTE' || (pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1 { print $5}')" },
 	{ run_command, "%s | ", "bat=$(cat /sys/class/power_supply/BAT0/capacity); if [ $(cat /sys/class/power_supply/AC/online) -eq 1 ]; then echo -n \"󰂅 ${bat}%\"; else if [ $bat -ge 80 ]; then echo -n \" ${bat}%\"; elif [ $bat -ge 60 ]; then echo -n \" ${bat}%\"; elif [ $bat -ge 40 ]; then echo -n \" ${bat}%\"; elif [ $bat -ge 20 ]; then echo -n \" ${bat}%\"; else echo -n \" ${bat}%\"; fi; fi" },
-	{ datetime, "%s",           "%a %b %d %r" },
+	{ datetime, "%s",           "%F | %I:%M %p " },
 };
