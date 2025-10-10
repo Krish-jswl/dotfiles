@@ -109,23 +109,41 @@
 -- }
 
 -- Everforest
+-- return {
+--   "sainnhe/everforest",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     -- Everforest options
+--     vim.g.everforest_background = "hard" -- "soft", "medium", or "hard"
+--     vim.g.everforest_transparent_background = 1
+--     vim.g.everforest_enable_italic = 1
+--     vim.g.everforest_diagnostic_text_highlight = 1
+--     vim.g.everforest_diagnostic_line_highlight = 1
+--     vim.g.everforest_diagnostic_virtual_text = "colored"
+--
+--     -- Apply the colorscheme
+--     vim.cmd("colorscheme everforest")
+--   end,
+-- }
+
+
+-- Dracula
 return {
-  "sainnhe/everforest",
-  lazy = false,
-  priority = 1000,
-  config = function()
-    -- Everforest options
-    vim.g.everforest_background = "hard" -- "soft", "medium", or "hard"
-    vim.g.everforest_transparent_background = 1
-    vim.g.everforest_enable_italic = 1
-    vim.g.everforest_diagnostic_text_highlight = 1
-    vim.g.everforest_diagnostic_line_highlight = 1
-    vim.g.everforest_diagnostic_virtual_text = "colored"
-
-    -- Apply the colorscheme
-    vim.cmd("colorscheme everforest")
-  end,
+  {
+    "Mofiqul/dracula.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      local dracula = require("dracula")
+      dracula.setup({
+        show_end_of_buffer = true, -- show '~' after end of buffers
+        transparent_bg = true,     -- 👈 enables transparency
+        italic_comment = true,
+        overrides = {},
+      })
+      vim.cmd.colorscheme("dracula")
+    end,
+  },
 }
-
-
 

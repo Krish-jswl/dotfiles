@@ -1,0 +1,5 @@
+[Default Applications]
+application/java-archive=userapp-java -jar-3DT5C3.desktop
+
+[Added Associations]
+application/java-archive=userapp-java -jar-3DT5C3.desktop;

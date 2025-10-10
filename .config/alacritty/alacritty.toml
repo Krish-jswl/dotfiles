@@ -1,38 +1,86 @@
-# Colors (Solarized Osaka)
-# Source https://github.com/craftzdog/solarized-osaka.nvim
+# Dracula theme for Alacritty
+# https://draculatheme.com/alacritty
+#
+# Color palette
+# https://spec.draculatheme.com
+#
+# Instructions
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd
 
-# Default colors
 [colors.primary]
-# background = '#001a1d'
-# foreground = '#839496'
-background = '#000000'
-foreground = '#ffffff'
 
-# Normal colors
-# [colors.normal]
-# black   = '#073642'
-# red     = '#dc322f'
-# green   = '#859900'
-# yellow  = '#b58900'
-# blue    = '#268bd2'
-# magenta = '#d33682'
-# cyan    = '#2aa198'
-# white   = '#eee8d5'
+background = "#282a36"
+# background = "#000000"
+foreground = "#f8f8f2"
+bright_foreground = "#ffffff"
 
-# Bright colors
-# [colors.bright]
-# black   = '#4c4c4c'
-# red     = '#cb4b16'
-# green   = '#586e75'
-# yellow  = '#657b83'
-# blue    = '#839496'
-# magenta = '#6c71c4'
-# cyan    = '#93a1a1'
-# white   = '#fdf6e3'
+[colors.cursor]
+
+text = "#282a36"
+cursor = "#f8f8f2"
+
+[colors.vi_mode_cursor]
+
+text = "CellBackground"
+cursor = "CellForeground"
+
+[colors.selection]
+
+text = "CellForeground"
+background = "#44475a"
+
+[colors.normal]
+
+black = "#21222c"
+red = "#ff5555"
+green = "#50fa7b"
+yellow = "#f1fa8c"
+blue = "#bd93f9"
+magenta = "#ff79c6"
+cyan = "#8be9fd"
+white = "#f8f8f2"
+
+[colors.bright]
+
+black = "#6272a4"
+red = "#ff6e6e"
+green = "#69ff94"
+yellow = "#ffffa5"
+blue = "#d6acff"
+magenta = "#ff92df"
+cyan = "#a4ffff"
+white = "#ffffff"
+
+[colors.search.matches]
+
+foreground = "#44475a"
+background = "#50fa7b"
+
+[colors.search.focused_match]
+
+foreground = "#44475a"
+background = "#ffb86c"
+
+[colors.footer_bar]
+
+background = "#282a36"
+foreground = "#f8f8f2"
+
+[colors.hints.start]
+
+foreground = "#282a36"
+background = "#f1fa8c"
+
+[colors.hints.end]
+
+foreground = "#f1fa8c"
+background = "#282a36"
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font", style = "Regular"}
+# normal = { family = "DepartureMono", style = "Regular"}
 size = 12
 
 [window]
-opacity = 0.8
+opacity = 0.95
+padding = { x = 20, y = 20}
