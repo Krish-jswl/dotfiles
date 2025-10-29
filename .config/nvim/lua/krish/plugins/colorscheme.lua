@@ -1,3 +1,51 @@
+-- Catppuccin
+-- return {
+--   {
+--     "catppuccin/nvim",
+--     name = "catppuccin",
+--     priority = 1000,
+--     config = function()
+--       require("catppuccin").setup({
+--         flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
+--         transparent_background = true,
+--         term_colors = true,
+--         no_italic = false,
+--         no_bold = false,
+--         no_underline = false,
+--         integrations = {
+--           cmp = true,
+--           gitsigns = true,
+--           nvimtree = true,
+--           telescope = true,
+--           treesitter = true,
+--           notify = false,
+--           mini = {
+--             enabled = true,
+--             indentscope_color = "",
+--           },
+--           lsp_trouble = true,
+--           which_key = true,
+--         },
+--       })
+--
+--       -- Apply the colorscheme
+--       vim.cmd.colorscheme("catppuccin")
+--
+--       -- Make background fully transparent
+--       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+--     end,
+--   },
+-- }
 
 --ONE_DARK
 -- return {
@@ -15,20 +63,25 @@
 -- }
 
 --SOLARIZED_OSAKA
--- return {
---   {
---     "craftzdog/solarized-osaka.nvim",
---     lazy = false,
---     priority = 1000,
---     opts = {
---       transparent = true,
---     },
---     config = function(_, opts)
---       require("solarized-osaka").setup(opts)
---       vim.cmd.colorscheme("solarized-osaka")
---     end,
---   },
--- }
+return {
+  {
+    "craftzdog/solarized-osaka.nvim",
+    lazy = false, -- load immediately
+    priority = 1000, -- make sure it loads before other plugins
+    config = function()
+      require("solarized-osaka").setup({
+        transparent = true, -- ✅ transparent background
+        styles = {
+          sidebars = "transparent",
+          floats = "transparent",
+        },
+      })
+
+      -- Apply the colorscheme
+      vim.cmd([[colorscheme solarized-osaka]])
+    end,
+  },
+}
 
 -- TokyoNight
 -- return {
@@ -129,21 +182,99 @@
 
 
 -- Dracula
-return {
-  {
-    "Mofiqul/dracula.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      local dracula = require("dracula")
-      dracula.setup({
-        show_end_of_buffer = true, -- show '~' after end of buffers
-        transparent_bg = true,     -- 👈 enables transparency
-        italic_comment = true,
-        overrides = {},
-      })
-      vim.cmd.colorscheme("dracula")
-    end,
-  },
-}
+-- return {
+--   {
+--     "Mofiqul/dracula.nvim",
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--       local dracula = require("dracula")
+--       dracula.setup({
+--         show_end_of_buffer = true, -- show '~' after end of buffers
+--         transparent_bg = true,     -- 👈 enables transparency
+--         italic_comment = true,
+--         overrides = {},
+--       })
+--       vim.cmd.colorscheme("dracula")
+--     end,
+--   },
+-- }
+
+-- Monochrome
+-- return {
+--   {
+--     "kdheepak/monochrome.nvim",
+--     lazy = false,  -- load immediately
+--     priority = 1000,  -- high priority to load before other plugins
+--     config = function()
+--       vim.cmd("colorscheme monochrome")
+--       -- optional: enable transparent background
+--       vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
+--       vim.cmd("highlight NormalNC guibg=NONE ctermbg=NONE")
+--       vim.cmd("highlight NormalFloat guibg=NONE ctermbg=NONE")
+--       vim.cmd("highlight EndOfBuffer guibg=NONE ctermbg=NONE")
+--     end,
+--   }
+-- }
+
+-- Monokai
+-- return {
+--   {
+--     "loctvl842/monokai-pro.nvim",
+--     lazy = false,            -- load right away
+--     priority = 1000,         -- make sure it's loaded before other plugins
+--     config = function()
+--       require("monokai-pro").setup({
+--         transparent_background = true,
+--         terminal_colors = true,
+--         devicons = true,
+--         filter = "pro", -- options: classic | octagon | pro | machine | ristretto | spectrum
+--         styles = {
+--           comments = { italic = true },
+--           keywords = { italic = true },
+--           functions = { bold = true },
+--           variables = {},
+--         },
+--         background_clear = {
+--           "float_win",   -- floating windows
+--           "telescope",   -- telescope popups
+--           "nvim-tree",   -- file explorer
+--           "lazy",        -- Lazy.nvim UI
+--         },
+--       })
+--
+--       -- apply the colorscheme
+--       vim.cmd("colorscheme monokai-pro")
+--
+--       -- Make Lazy.nvim background transparent too
+--       vim.api.nvim_create_autocmd("ColorScheme", {
+--         pattern = "monokai-pro",
+--         callback = function()
+--           vim.api.nvim_set_hl(0, "LazyNormal", { bg = "none" })
+--           vim.api.nvim_set_hl(0, "LazyBorder", { bg = "none" })
+--         end,
+--       })
+--     end,
+--   },
+-- }
+
+-- Moonfly
+-- return {
+--   "bluz71/vim-moonfly-colors",
+--   name = "moonfly",
+--   lazy = false,
+--   priority = 1000,
+--   config = function()
+--     -- enable transparency
+--     vim.g.moonflyTransparent = true
+--
+--     -- optional: disable background color for floating windows
+--     vim.g.moonflyWinSeparator = 2
+--     vim.g.moonflyNormalFloat = true
+--
+--     -- apply the colorscheme
+--     vim.cmd("colorscheme moonfly")
+--   end,
+-- }
+
 
