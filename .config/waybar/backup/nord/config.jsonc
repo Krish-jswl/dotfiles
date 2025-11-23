@@ -25,7 +25,7 @@
   "group/group-1": {
     "orientation": "horizontal",
     "modules": [
-      "sway/workspaces",
+      "hyprland/workspaces",
     ],
   },
   "group/group-2": {
@@ -60,7 +60,7 @@
   "group/group-5": {
     "orientation": "horizontal",
     "modules": [
-      "sway/window",
+      "hyprland/window",
     ],
   },
   "group/group-6": {
@@ -103,19 +103,31 @@
     ],
   },
   // Modules configuration
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{name}",
-        "format-icons": {
-            "default": "○",
-            "active": "●",
-            "urgent": ""
-        },
-        "on-click": "activate"
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "activate-only": false,
+    "all-outputs": true,
+    "format": "{name}",
+    "format-icons": {
+      "1": "*",  
+      "2": "*",   
+      "3": "*",     
+      "4": "*",    
+      "5": "*",   
+      "6": "*",     
+      "7": "*",    
+      "8": "*",     
+      "9": "*",    
+      "10": "*",
+       "urgent": "*",
+       "active": "*",
+       "default": "*",
     },
-
-  "sway/window": {
+    "persistent_workspaces": {
+      "[]": 3
+    }
+  },
+  "hyprland/window": {
     "format": "  {}",
     "max-length": 32,
     "separate-outputs": false,
@@ -338,7 +350,7 @@
   "battery": {
     "states": {
       "good": 95,
-      "warning": 30,
+      "warning": 20,
       "critical": 15
     },
     "format": "{icon} {capacity}%",

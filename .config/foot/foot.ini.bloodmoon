@@ -1,0 +1,44 @@
+[main]
+font=JetBrainsMono Nerd Font:size=12
+pad=10x10
+
+[csd]
+size=0
+hide-when-maximized=yes
+
+[colors]
+alpha=1
+cursor=C6C6C4 C6C6C4
+foreground=C6C6C4
+background=10100E
+
+regular0=10100E
+regular1=C40233
+regular2=009F6B
+regular3=FFD700
+regular4=0087BD
+regular5=9A4EAE
+regular6=20B2AA
+regular7=C6C6C4
+
+bright0=696969
+bright1=FF2400
+bright2=03C03C
+bright3=FDFF00
+bright4=007FFF
+bright5=FF1493
+bright6=00CCCC
+bright7=FFFAFA
+
+16=FFD700
+17=10100E
+
+selection-foreground=C6C6C4
+selection-background=3C3C3C
+
+search-box-no-match=10100E C40233
+search-box-match=C6C6C4 696969
+
+jump-labels=10100E FFD700
+urls=0087BD
+

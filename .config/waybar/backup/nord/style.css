@@ -1,4 +1,4 @@
-@import "mocha.css";
+@import "nord.css";
 
 * {
     min-height: 0;
@@ -29,7 +29,7 @@
     background-color: @base;
     transition-property:  background-color;
     transition-duration: 0.5s;
-    border: 2px solid @mauve;
+    border: 2px solid @blue;
 }
 
 button {
@@ -61,7 +61,7 @@ button:hover {
 }
 
 #workspaces button.active {
-    background: @mauve;
+    background: @blue;
     color: @crust;
     border-radius:  4.5pt;
     margin-left: 0px;
@@ -80,7 +80,7 @@ button:hover {
 }
 
 #tags button {
-    color: @mauve;
+    color: @blue;
     background: @base;
     border-radius: 0px;
     padding: 0px 0px;
