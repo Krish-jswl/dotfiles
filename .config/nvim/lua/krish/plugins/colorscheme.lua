@@ -1,11 +1,11 @@
 -- Blood-moon
--- return {
---   "nvim-lua/plenary.nvim", -- dummy entry so Lazy handles it
---   priority = 1000,
---   config = function()
---     vim.cmd.colorscheme("bloodmoon")
---   end,
--- }
+return {
+  "nvim-lua/plenary.nvim", -- dummy entry so Lazy handles it
+  priority = 1000,
+  config = function()
+    vim.cmd.colorscheme("bloodmoon")
+  end,
+}
 
 
 --Nord
@@ -39,53 +39,53 @@
 
 
 -- Catppuccin
-return {
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    config = function()
-      require("catppuccin").setup({
-        flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
-        transparent_background = true,
-        term_colors = true,
-        no_italic = false,
-        no_bold = false,
-        no_underline = false,
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          nvimtree = true,
-          telescope = true,
-          treesitter = true,
-          notify = false,
-          mini = {
-            enabled = true,
-            indentscope_color = "",
-          },
-          lsp_trouble = true,
-          which_key = true,
-        },
-      })
-
-      -- Apply the colorscheme
-      vim.cmd.colorscheme("catppuccin")
-
-      -- Make background fully transparent
-      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
-      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-      vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
-      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-      vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
-      vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
-      vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
-      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
-    end,
-  },
-}
+-- return {
+--   {
+--     "catppuccin/nvim",
+--     name = "catppuccin",
+--     priority = 1000,
+--     config = function()
+--       require("catppuccin").setup({
+--         flavour = "mocha", -- Options: latte, frappe, macchiato, mocha
+--         transparent_background = true,
+--         term_colors = true,
+--         no_italic = false,
+--         no_bold = false,
+--         no_underline = false,
+--         integrations = {
+--           cmp = true,
+--           gitsigns = true,
+--           nvimtree = true,
+--           telescope = true,
+--           treesitter = true,
+--           notify = false,
+--           mini = {
+--             enabled = true,
+--             indentscope_color = "",
+--           },
+--           lsp_trouble = true,
+--           which_key = true,
+--         },
+--       })
+--
+--       -- Apply the colorscheme
+--       vim.cmd.colorscheme("catppuccin")
+--
+--       -- Make background fully transparent
+--       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "FloatBorder", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "MsgArea", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
+--       vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
+--     end,
+--   },
+-- }
 
 --ONE_DARK
 -- return {
