@@ -8,6 +8,7 @@
   "margin-top": 5,
   "margin-bottom": 0,
   "spacing": 15,
+  "swap-icon-label": true,
   "reload_style_on_change": true,
 
   // Choose the order of the modules
@@ -25,7 +26,7 @@
   "group/group-1": {
     "orientation": "horizontal",
     "modules": [
-      "sway/workspaces",
+      "niri/workspaces",
     ],
   },
   "group/group-2": {
@@ -60,7 +61,7 @@
   "group/group-5": {
     "orientation": "horizontal",
     "modules": [
-      "sway/window",
+      "niri/window",
     ],
   },
   "group/group-6": {
@@ -103,20 +104,20 @@
     ],
   },
   // Modules configuration
-    "sway/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "format": "{name}",
-        "format-icons": {
-            "default": "○",
-            "active": "●",
-            "urgent": ""
-        },
-        "on-click": "activate"
-    },
-
-  "sway/window": {
-    "format": "  {}",
+"niri/workspaces": {
+  "disable-click": false,
+  "format": "{icon}",
+  "on-scroll-up": "true",
+  "on-scroll-down": "true",
+  "swap-icon-label": true,
+  "format-icons": {
+    "active": " ",
+    "default": " "
+    }
+  },
+  "niri/window": {
+    "format": " {} ",
+    "swap-icon-label": true,
     "max-length": 32,
     "separate-outputs": false,
   },
@@ -338,7 +339,7 @@
   "battery": {
     "states": {
       "good": 95,
-      "warning": 30,
+      "warning": 20,
       "critical": 15
     },
     "format": "{icon} {capacity}%",
@@ -490,3 +491,4 @@
     "min-length": 14,
   },
 } 
+
