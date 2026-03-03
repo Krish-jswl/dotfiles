@@ -6,8 +6,8 @@ const unsigned int interval = 1000;
 /* text to show if no value can be retrieved */
 static const char unknown_str[] = "n/a";
 
-/* maximum output string length */
-#define MAXLEN 2048
+/* maximum command output length */
+#define CMDLEN 128
 
 /*
  * function            description                     argument (example)
@@ -56,6 +56,7 @@ static const char unknown_str[] = "n/a";
  *                                                     thermal zone on FreeBSD
  *                                                     (tz0, tz1, etc.)
  * uid                 UID of current user             NULL
+ * up                  interface is running            interface name (eth0)
  * uptime              system uptime                   NULL
  * username            username of current user        NULL
  * vol_perc            OSS/ALSA volume in percent      mixer file (/dev/mixer)
@@ -64,10 +65,13 @@ static const char unknown_str[] = "n/a";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 static const struct arg args[] = {
-	/* function format          argument */
-	{ wifi_essid, "  : %s |", "wlp2s0" },
-	{ run_command, " 󰃟 %s%% | ", "~/.local/bin/sl-bri"},
-	{ run_command, " 󰕾 : %s | ", "pactl get-sink-mute @DEFAULT_SINK@ | grep yes > /dev/null && echo -n 'MUTE' || (pactl get-sink-volume @DEFAULT_SINK@ | awk 'NR==1 { print $5}')" },
-	{ run_command, "%s | ", "bat=$(cat /sys/class/power_supply/BAT0/capacity); if [ $(cat /sys/class/power_supply/AC/online) -eq 1 ]; then echo -n \"󰂅 ${bat}%\"; else if [ $bat -ge 80 ]; then echo -n \" ${bat}%\"; elif [ $bat -ge 60 ]; then echo -n \" ${bat}%\"; elif [ $bat -ge 40 ]; then echo -n \" ${bat}%\"; elif [ $bat -ge 20 ]; then echo -n \" ${bat}%\"; else echo -n \" ${bat}%\"; fi; fi" },
-	{ datetime, "%s",           "%F | %I:%M %p " },
+    /* function      format          argument                         interval signal */
+    { run_command, "  %s |", "nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2", 5, 0 },
+    { run_command,   " 󰃟 %s%% |",    "~/.local/bin/sl-bri",           0,       2 },
+    { run_command,   " 󰕾 %s |",      "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'", 0, 1 },
+    { run_command, "  %s |", "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3==\"[MUTED]\") print \"MUTE\"; else print \"ON\"}'", 0, 3 },
+    { battery_perc,  "  %s%% |",    "BAT0",                          30,      0 },
+    { datetime,      "%s",           "%F | %I:%M %p",                  60,      0 },
 };
+/* maximum output string length */
+#define MAXLEN CMDLEN * LEN(args)
