@@ -64,14 +64,22 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
-static const struct arg args[] = {
-    /* function      format          argument                         interval signal */
-    { run_command, "  %s |", "nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2", 5, 0 },
-    { run_command,   " 󰃟 %s%% |",    "~/.local/bin/sl-bri",           0,       2 },
-    { run_command,   " 󰕾 %s |",      "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'", 0, 1 },
-    { run_command, "  %s |", "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3==\"[MUTED]\") print \"MUTE\"; else print \"ON\"}'", 0, 3 },
-    { battery_perc,  "  %s%% |",    "BAT0",                          30,      0 },
-    { datetime,      "%s",           "%F | %I:%M %p",                  60,      0 },
-};
 /* maximum output string length */
+static const struct arg args[] = {
+    /* function       format         argument                                                       interval signal */
+
+    { run_command,   "  %s |",     "nmcli -t -f active,ssid dev wifi | grep '^yes' | cut -d: -f2",   5,      0 },
+
+    { run_command,   " 󰃟 %s%% |",   "brightnessctl -m | cut -d, -f4 | tr -d '%'",                    0,      2 },
+
+    { run_command,   " 󰕾 %s%% |",   "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'", 0, 1 },
+
+    { run_command,   "  %s |",     "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3==\"[MUTED]\") print \"MUTE\"; else print \"ON\"}'", 0, 3 },
+
+    { battery_state, "%s ",         "BAT0",                                                          10,     0 },
+
+    { battery_perc,  "%s%% |",      "BAT0",                                                          10,     0 },
+
+    { datetime,      "%s",          "%F | %I:%M %p",                                                 60,     0 },
+};
 #define MAXLEN CMDLEN * LEN(args)
