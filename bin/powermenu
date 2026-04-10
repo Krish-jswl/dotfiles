@@ -1,0 +1,19 @@
+#!/bin/sh
+
+choice=$(printf "Logout\nReboot\nShutdown\nSuspend" | dmenu \
+-c \
+-l 10 \
+-g 1 \
+-fn "Iosevka Nerd Font:size=14" \
+-nb "#2d353b" \
+-nf "#d3c6aa" \
+-sb "#83c092" \
+-sf "#2d253b" \
+-p "Power")
+
+case "$choice" in
+    Logout) pkill -KILL -u $USER ;;
+    Reboot) systemctl reboot ;;
+    Shutdown) systemctl poweroff ;;
+    Suspend) systemctl suspend ;;
+esac

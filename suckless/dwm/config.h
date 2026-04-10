@@ -8,11 +8,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Iosevka Nerd Font:size=12" };
 static const char dmenufont[]       = {"Iosevka Nerd Font:size=14"};
-static const char col_gray1[]       = "#000000";
-static const char col_gray2[]       = "#1f1d2e";
-static const char col_gray3[]       = "#e0def4";
-static const char col_gray4[]       = "#1f1d2e";
-static const char col_cyan[]        = "#31748f";
+static const char col_gray1[]       = "#2d353b";
+static const char col_gray2[]       = "#343f44";
+static const char col_gray3[]       = "#d3c6aa";
+static const char col_gray4[]       = "#475258";
+static const char col_cyan[]        = "#83c092";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -38,7 +38,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -61,7 +61,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *file[]  = { "thunar", NULL };
 static const char *browser[] = {
     "/bin/sh",

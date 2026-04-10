@@ -1,0 +1,169 @@
+;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
+
+;; Place your private configuration here! Remember, you do not need to run 'doom
+;; sync' after modifying this file!
+
+
+;; Some functionality uses this to identify you, e.g. GPG configuration, email
+;; clients, file templates and snippets. It is optional.
+;; (setq user-full-name "John Doe"
+;;       user-mail-address "john@doe.com")
+
+;; Doom exposes five (optional) variables for controlling fonts in Doom:
+;;
+;; - `doom-font' -- the primary font to use
+;; - `doom-variable-pitch-font' -- a non-monospace font (where applicable)
+;; - `doom-big-font' -- used for `doom-big-font-mode'; use this for
+;;   presentations or streaming.
+;; - `doom-symbol-font' -- for symbols
+;; - `doom-serif-font' -- for the `fixed-pitch-serif' face
+;;
+;; See 'C-h v doom-font' for documentation and more examples of what they
+;; accept. For example:
+;;
+(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 28))
+;;
+;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
+;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
+;; refresh your font settings. If Emacs still can't find your font, it likely
+;; wasn't installed correctly. Font issues are rarely Doom issues!
+
+;; There are two ways to load a theme. Both assume the theme is installed and
+;; available. You can either set `doom-theme' or manually load a theme with the
+;; `load-theme' function. This is the default:
+;; (setq doom-theme 'doom-rose-pine)
+
+;; -----
+;; `gruvbox-material' contrast and palette options
+
+;; (setq doom-gruvbox-material-background  "medium"  ; or hard (defaults to soft)
+;;      doom-gruvbox-material-palette     "mix") ; or original (defaults to material)
+
+;; ;; `gruvbox-material-light' contrast and palette options
+;; (setq doom-gruvbox-material-light-background  "medium" ; or hard (defaults to soft)
+;;       doom-gruvbox-material-light-palette     "mix") ; or original (defaults to material)
+
+;; set `doom-theme'
+;; (setq doom-theme 'doom-gruvbox-material) ; dark variant
+(load-theme 'everforest-hard-dark t)
+;; This determines the style of line numbers in effect. If set to `nil', line
+;; numbers are disabled. For relative line numbers, set this to `relative'.
+(setq display-line-numbers-type 'relative)
+
+;; If you use `org' and don't want your org files in the default location below,
+;; change `org-directory'. It must be set before org loads!
+;; Keep these OUTSIDE the after! block (they must be set before org loads)
+(setq org-directory "~/org/")
+(setq org-agenda-files '("~/org/tasks.org"))
+
+;; Wrap the rest of your org configuration inside `after! org`
+(after! org
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "IN-PROGRESS(i)" "WAIT(w)" "|" "DONE(d)" "CANCELLED(c)")))
+
+  (setq org-log-done 'time)
+  (setq org-hide-emphasis-markers t)
+
+  ;; Journal helper setup
+  (defun my/org-journal-file ()
+    (format-time-string (expand-file-name "journal-%Y.org" org-directory)))
+
+  (defun my/org-datetree-location ()
+    (org-datetree-find-date-create (calendar-current-date)))
+
+  ;; Capture templates
+  (setq org-capture-templates
+        '(("t" "Todo" entry
+           (file "~/org/inbox.org")
+           "* TODO %?\n%U\n")
+
+          ("s" "Study task" entry
+           (file "~/org/tasks.org")
+           "* TODO %?\nSCHEDULED: %t\n")
+
+          ("n" "Notes" entry
+           (file "~/org/cs.org")
+           "* %?\n%U\n")
+
+          ("j" "Journal" entry
+           (file+function my/org-journal-file my/org-datetree-location)
+           "* %<%H:%M>\n:PROPERTIES:\n:CREATED: %U\n:END:\n\n%?\n"))))
+
+(setq org-log-done 'time)
+(setq org-hide-emphasis-markers t)
+
+;; Whenever you reconfigure a package, make sure to wrap your config in an
+;; `with-eval-after-load' block, otherwise Doom's defaults may override your
+;; settings. E.g.
+;;
+;;   (with-eval-after-load 'PACKAGE
+;;     (setq x y))
+;;
+;; The exceptions to this rule:
+;;
+;;   - Setting file/directory variables (like `org-directory')
+;;   - Setting variables which explicitly tell you to set them before their
+;;     package is loaded (see 'C-h v VARIABLE' to look them up).
+;;   - Setting doom variables (which start with 'doom-' or '+').
+;;
+;; Here are some additional functions/macros that will help you configure Doom.
+;;
+;; - `load!' for loading external *.el files relative to this one
+;; - `add-load-path!' for adding directories to the `load-path', relative to
+;;   this file. Emacs searches the `load-path' when you load packages with
+;;   `require' or `use-package'.
+;; - `map!' for binding new keys
+;;
+;; To get information about any of these functions/macros, move the cursor over
+;; the highlighted symbol at press 'K' (non-evil users must press 'C-c c k').
+;; This will open documentation for it, including demos of how they are used.
+;; Alternatively, use `C-h o' to look up a symbol (functions, variables, faces,
+;; etc).
+;;
+;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
+;; they are implemented.
+
+;;lsp stuff
+(setq completion-styles '(orderless basic)
+      completion-category-defaults nil
+      completion-category-overrides '((file (styles partial-completion))))
+
+(after! eglot
+  (setq completion-category-overrides
+        '((eglot (styles orderless)))))
+
+(after! corfu
+  (setq corfu-auto t
+        corfu-auto-delay 0.2
+        corfu-auto-prefix 1
+        corfu-preview-current t))
+
+(use-package corfu-popupinfo
+  :after corfu
+  :config
+  (corfu-popupinfo-mode))
+
+;; treemacs configs
+(map! :leader
+      :desc "Toggle Treemacs"
+      "e e" #'treemacs)
+
+(after! treemacs
+  (treemacs-follow-mode t)
+  (treemacs-filewatch-mode t))
+
+(after! treemacs-projectile)
+
+;;  smooth cursor
+(pixel-scroll-precision-mode 1)
+
+(use-package! pulsar
+  :config
+  (pulsar-global-mode 1))
+
+;; optional — disable beacon if Doom enabled it
+(after! beacon
+  (beacon-mode -1))
+
+;; image in org
+(setq org-startup-with-inline-images t)

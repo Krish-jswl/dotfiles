@@ -1,0 +1,10 @@
+#!/bin/sh
+
+LOCK="$HOME/.local/bin/lock"
+
+~/.cargo/bin/xidlehook \
+  --not-when-fullscreen \
+  --not-when-audio \
+  --timer 240 "xset dpms force off" "" \
+  --timer 300 "$LOCK" "" \
+  --timer 900 "$LOCK && systemctl suspend" ""

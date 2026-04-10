@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Rose Pine (Moon) + Pure Black (refined)
+BG="000000ff"
+FG="b8b8b8ff"        # softer gray text (not bright white)
+RING="6e6a86ff"      # muted ring (key change 🔥)
+ACCENT="c4a7e7ff"    # iris (purple)
+RED="eb6f92ff"
+GREEN="9ccfd8ff"
+YELLOW="f6c177ff"
+BLACK="1f1d2eff"
+BLANK="00000000"
+
+i3lock \
+  --color="${BG}" \
+  \
+  --insidever-color="${BLANK}" \
+  --ringver-color="${ACCENT}" \
+  \
+  --insidewrong-color="${BLANK}" \
+  --ringwrong-color="${RED}" \
+  \
+  --inside-color="${BLANK}" \
+  --ring-color="${RING}" \
+  --line-color="${BLANK}" \
+  --separator-color="${BLACK}" \
+  \
+  --verif-color="${ACCENT}" \
+  --wrong-color="${RED}" \
+  --time-color="${FG}" \
+  --date-color="${FG}" \
+  --layout-color="${FG}" \
+  \
+  --keyhl-color="${GREEN}" \
+  --bshl-color="${RED}" \
+  \
+  --clock \
+  --indicator \
+  --time-str="%H:%M" \
+  --date-str="%A, %d %b" \
+  \
+  --radius=110 \
+  --ring-width=6 \
+  \
+  --pass-media-keys \
+  --pass-screen-keys \
+  --pass-power-keys

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# store current brightness
+current=$(brightnessctl g)
+echo "$current" > /tmp/brightness-prev
+
+# dim gradually
+for i in $(seq 1 10); do
+    brightnessctl set 5%- > /dev/null
+    sleep 0.05
+done

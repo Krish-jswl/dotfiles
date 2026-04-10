@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if [ -f /tmp/brightness-prev ]; then
+    brightnessctl set "$(cat /tmp/brightness-prev)" > /dev/null
+fi

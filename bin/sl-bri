@@ -1,0 +1,6 @@
+#!/bin/sh
+
+current=$(brightnessctl g)
+max=$(brightnessctl m)
+
+echo $(( current * 100 / max ))

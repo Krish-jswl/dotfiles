@@ -76,9 +76,9 @@ static const struct arg args[] = {
 
     { run_command,   "  %s |",     "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3==\"[MUTED]\") print \"MUTE\"; else print \"ON\"}'", 0, 3 },
 
-    { battery_state, "%s ",         "BAT0",                                                          10,     0 },
+    { battery_state, "%s ",         "BAT0",                                                          10,     4 },
 
-    { battery_perc,  "%s%% |",      "BAT0",                                                          10,     0 },
+    { battery_perc,  "%s%% |",      "BAT0",                                                          10,     4 },
 
     { datetime,      "%s",          "%F | %I:%M %p",                                                 60,     0 },
 };

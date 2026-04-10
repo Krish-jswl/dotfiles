@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Tokyonight Storm Color Palette (RRGGBBAA)
+BG="1a1b26ff"
+FG="c0caf5ff"
+BLACK="15161eff"
+RED="f7768eff"
+GREEN="9ece6aff"
+YELLOW="e0af68ff"
+BLUE="7aa2f7ff"
+BLANK="00000000"
+
+i3lock \
+  --color="${BG}" \
+  \
+  --insidever-color="${BLANK}" \
+  --ringver-color="${BLUE}" \
+  \
+  --insidewrong-color="${BLANK}" \
+  --ringwrong-color="${RED}" \
+  \
+  --inside-color="${BLANK}" \
+  --ring-color="${FG}" \
+  --line-color="${BLANK}" \
+  --separator-color="${BLACK}" \
+  \
+  --verif-color="${BLUE}" \
+  --wrong-color="${RED}" \
+  --time-color="${FG}" \
+  --date-color="${FG}" \
+  --layout-color="${FG}" \
+  \
+  --keyhl-color="${GREEN}" \
+  --bshl-color="${RED}" \
+  \
+  --clock \
+  --indicator \
+  --time-str="%H:%M:%S" \
+  --date-str="%A, %Y-%m-%d" \
+  --radius=120 \
+  --ring-width=8 \
+  --pass-media-keys \
+  --pass-screen-keys \
+  --pass-power-keys
