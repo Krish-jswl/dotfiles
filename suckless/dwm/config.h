@@ -2,17 +2,17 @@
 #include <X11/XF86keysym.h>
 /* appearance */
 static const unsigned int borderpx  = 4;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 15;        /* gaps between windows */
 static const unsigned int snap      = 7;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Iosevka Nerd Font:size=12" };
-static const char dmenufont[]       = {"Iosevka Nerd Font:size=14"};
-static const char col_gray1[]       = "#2d353b";
-static const char col_gray2[]       = "#343f44";
-static const char col_gray3[]       = "#d3c6aa";
-static const char col_gray4[]       = "#475258";
-static const char col_cyan[]        = "#83c092";
+static const int topbar             = 1;        /* 0 means bottom bar */
+static const char *fonts[]          = { "JetBrainsMono Nerd Font:size=11" };
+static const char dmenufont[]       = {"JetBrainsMono Nerd Font:size=12"};
+static const char col_gray1[]       = "#1d1f21"; // bg
+static const char col_gray2[]       = "#373b41"; // inactive border
+static const char col_gray3[]       = "#c5c8c6"; // fg
+static const char col_gray4[]       = "#1d1f21"; // dim fg
+static const char col_cyan[]        = "#f0c674"; // accent (blue)
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -62,13 +62,8 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *file[]  = { "thunar", NULL };
-static const char *browser[] = {
-    "/bin/sh",
-    "-c",
-    "LIBVA_DRIVER_NAME=radeonsi MOZ_DISABLE_RDD_SANDBOX=1 librewolf",
-    NULL
-};
+static const char *file[]  = { "nautilus", "--new-window", NULL };
+static const char *browser[] = {"librewolf", NULL};
 static const char *dmenucmd[] = {
     "dmenu_run",
     "-c",                 /* centered */
@@ -84,12 +79,12 @@ static const char *dmenucmd[] = {
 };
 static const char *scr_full[] = {
     "sh","-c",
-    "maim | tee ~/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png | xclip -selection clipboard -t image/png && notify-send 'Screenshot saved & copied'",
+    "maim | tee ~/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png | xclip -selection clipboard -t image/png && notify-send 'Screenshot saved & copied'",
     NULL
 };
 static const char *scr_area[] = {
     "sh","-c",
-    "maim -s | tee ~/Pictures/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png | xclip -selection clipboard -t image/png && notify-send 'Area screenshot saved & copied'",
+    "maim -s | tee ~/Pictures/Screenshots/screenshot-$(date +%Y-%m-%d_%H-%M-%S).png | xclip -selection clipboard -t image/png && notify-send 'Area screenshot saved & copied'",
     NULL
 };
 static const char *powermenu[] = { "/home/krish/.local/bin/powermenu", NULL };
@@ -115,7 +110,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_f,      togglefullscr,  {0} },
+	// { MODKEY,                       XK_f,      togglefullscr,  {0} },
+    { MODKEY, XK_f, fullscreen, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },

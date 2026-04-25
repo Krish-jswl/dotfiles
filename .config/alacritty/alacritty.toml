@@ -1,33 +1,50 @@
-[colors.bright]
-black = "#444b6a"
-blue = "#7da6ff"
-cyan = "#0db9d7"
-green = "#b9f27c"
-magenta = "#bb9af7"
-red = "#ff7a93"
-white = "#acb0d0"
-yellow = "#ff9e64"
+# Tomorrow Night Theme Colors
+[colors.primary]
+background = "#1d1f21"
+foreground = "#c5c8c6"
+
+[colors.cursor]
+text = "#1d1f21"
+cursor = "#c5c8c6"
 
 [colors.normal]
-black = "#32344a"
-blue = "#7aa2f7"
-cyan = "#449dab"
-green = "#9ece6a"
-magenta = "#ad8ee6"
-red = "#f7768e"
-white = "#787c99"
-yellow = "#e0af68"
+black   = "#1d1f21"
+red     = "#cc6666"
+green   = "#b5bd68"
+yellow  = "#f0c674"
+blue    = "#81a2be"
+magenta = "#b294bb"
+cyan    = "#8abeb7"
+white   = "#c5c8c6"
 
-[colors.primary]
-background = "#1a1b26"
-# background = "#121212"
-foreground = "#a9b1d6"
+[colors.bright]
+black   = "#666666"
+red     = "#d54e53"
+green   = "#b9ca4a"
+yellow  = "#e7c547"
+blue    = "#7aa6da"
+magenta = "#c397d8"
+cyan    = "#70c0b1"
+white   = "#eaeaea"
 
 [font]
-normal = { family = "Iosevka Nerd Font", style = "Regular"}
-size = 14
+normal = { family = "JetBrainsMono Nerd Font", style = "Regular"}
+size = 13
 
 [window]
 opacity = 0.95
 padding.x = 10
 padding.y = 10
+# decorations = "Null"
+
+[window.dimensions]
+columns = 90
+lines = 23
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
+
+[cursor]
+style = { shape = "Block", blinking = "On" }

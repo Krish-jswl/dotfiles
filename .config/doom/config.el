@@ -2,8 +2,7 @@
 
 ;; Place your private configuration here! Remember, you do not need to run 'doom
 ;; sync' after modifying this file!
-
-
+(global-visual-line-mode 1)
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 ;; (setq user-full-name "John Doe"
@@ -21,7 +20,9 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Iosevka Nerd Font" :size 28))
+;; (setq doom-font (font-spec :family "Iosevka Nerd Font" :size 28))
+;; (setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 34))
+(setq doom-font (font-spec :family "JetBrainsMono Nerd Font" :size 28))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -45,7 +46,9 @@
 
 ;; set `doom-theme'
 ;; (setq doom-theme 'doom-gruvbox-material) ; dark variant
-(load-theme 'everforest-hard-dark t)
+(setq doom-theme 'doom-tomorrow-night) ; dark variant
+;; (load-theme 'everforest-hard-dark t)
+
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type 'relative)
@@ -54,7 +57,8 @@
 ;; change `org-directory'. It must be set before org loads!
 ;; Keep these OUTSIDE the after! block (they must be set before org loads)
 (setq org-directory "~/org/")
-(setq org-agenda-files '("~/org/tasks.org"))
+(setq org-agenda-files '("~/org/tasks.org"
+                         "~/org/inbox.org"))
 
 ;; Wrap the rest of your org configuration inside `after! org`
 (after! org

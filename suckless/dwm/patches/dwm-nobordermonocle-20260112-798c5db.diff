@@ -1,0 +1,39 @@
+From 798c5dbd6f61eeade4737f9b5e87b1076bc3f414 Mon Sep 17 00:00:00 2001
+From: Sebastian Jarsve <sebastianjarsve@gmail.com>
+Date: Mon, 12 Jan 2026 17:28:18 +0530
+Subject: [PATCH] nobordermonocle: remove borders from nonfloating clients in
+
+---
+ dwm.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/dwm.c b/dwm.c
+index 8f4fa75..e6c368e 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -316,6 +316,10 @@ applysizehints(Client *c, int *x, int *y, int *w, int *h, int interact)
+ 	int baseismin;
+ 	Monitor *m = c->mon;
+ 
++	// return 1 if layout is monocle
++	if (&monocle == c->mon->lt[c->mon->sellt]->arrange)
++		return 1;
++
+ 	/* set minimum possible */
+ 	*w = MAX(1, *w);
+ 	*h = MAX(1, *h);
+@@ -1292,6 +1296,11 @@ resizeclient(Client *c, int x, int y, int w, int h)
+ 	c->oldw = c->w; c->w = wc.width = w;
+ 	c->oldh = c->h; c->h = wc.height = h;
+ 	wc.border_width = c->bw;
++	if ((&monocle == c->mon->lt[c->mon->sellt]->arrange) && (!c->isfloating)) {
++		wc.border_width = 0;
++		c->w = wc.width += c->bw * 2;
++		c->h = wc.height += c->bw * 2;
++	}
+ 	XConfigureWindow(dpy, c->win, CWX|CWY|CWWidth|CWHeight|CWBorderWidth, &wc);
+ 	configure(c);
+ 	XSync(dpy, False);
+-- 
+2.51.2
+

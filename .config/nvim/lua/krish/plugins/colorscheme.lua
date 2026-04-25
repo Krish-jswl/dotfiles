@@ -1,24 +1,24 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    "cormacrelf/vim-colors-github", -- fallback optional
+  },
+
+  {
+    "chriskempson/base16-vim",
     lazy = false,
     priority = 1000,
-    opts = {
-      style = "storm", -- Options: "storm", "night", "moon", "day"
-      transparent = true, -- Enable transparent background
-      terminal_colors = true,
-      styles = {
-        comments = { italic = true },
-        keywords = { italic = true },
-        functions = {},
-        variables = {},
-        sidebars = "transparent", -- Transparent sidebars
-        floats = "transparent", -- Transparent floating windows
-      },
-    },
-    config = function(_, opts)
-      require("tokyonight").setup(opts)
-      vim.cmd([[colorscheme tokyonight]])
+    config = function()
+      -- enable true color
+      vim.opt.termguicolors = true
+
+      -- set colorscheme
+      vim.cmd.colorscheme("base16-tomorrow-night")
+
+      -- make background transparent
+      vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
+      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
     end,
   },
 }
