@@ -72,9 +72,9 @@ static const struct arg args[] = {
 
     { run_command,   " 󰃟 %s%% |",   "brightnessctl -m | cut -d, -f4 | tr -d '%'",                    0,      2 },
 
-    { run_command,   " 󰕾 %s%% |",   "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'", 0, 1 },
+    { run_command,   " 󰕾 %s%% |",   "wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2*100)}'", 1, 1 },
 
-    { run_command,   "  %s |",     "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3==\"[MUTED]\") print \"MUTE\"; else print \"ON\"}'", 0, 3 },
+    { run_command,   "  %s |",     "wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{if ($3==\"[MUTED]\") print \"MUTE\"; else print \"ON\"}'", 1, 3 },
 
     { battery_state, "%s ",         "BAT0",                                                          10,     4 },
 
