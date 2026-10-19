@@ -1,0 +1,221 @@
+/* Rosé Pine Moon palette */
+@define-color base #232136;
+@define-color surface #2A273F;
+@define-color overlay #393552;
+@define-color muted #6E6A86;
+@define-color subtle #908CAA;
+@define-color text #E0DEF4;
+@define-color love #EB6F92;
+@define-color gold #F6C177;
+@define-color rose #EA9A97;
+@define-color pine #3E8FB0;
+@define-color foam #9CCFD8;
+@define-color iris #C4A7E7;
+@define-color highlight_low #2A283E;
+@define-color highlight_med #44415A;
+@define-color highlight_high #56526E;
+
+/* Semantic aliases */
+@define-color tw_bg @base;
+@define-color tw_fg @text;
+@define-color tw_dim @muted;
+@define-color tw_border @surface;
+@define-color tw_accent @iris;
+@define-color tw_hover @rose;
+@define-color tw_tan @gold;
+@define-color tw_red @love;
+
+* {
+  font-family: "Iosevka Nerd Font";
+  font-size: 14px;
+  border: none;
+  box-shadow: none;
+}
+
+window#waybar {
+  background-color: alpha(@tw_bg, 0.9);
+  color: @tw_fg;
+}
+
+#backlight,
+#battery,
+#cpu,
+#clock,
+#idle_inhibitor,
+#language,
+#memory,
+#network,
+#pulseaudio,
+#tray,
+#workspaces,
+#custom-media-animation,
+#custom-media-now-playing {
+  background-color: transparent;
+  color: @tw_fg;
+}
+
+.modules-left {
+  background-color: transparent;
+  padding: 0;
+}
+
+.modules-right {
+  background-color: transparent;
+  padding: 0 5px 0 0;
+}
+
+#workspaces {
+  font-size: 14px;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  min-width: 1px;
+  border-radius: 0;
+  color: @tw_fg;
+  background-color: transparent;
+}
+
+#workspaces button:hover {
+  background-color: @highlight_med;
+  color: @tw_fg;
+}
+
+#workspaces button.empty {
+  color: @muted;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  background-color: @pine;
+  color: @tw_bg;
+  border-bottom: 2px solid @pine;
+}
+
+#workspaces button.urgent {
+  background-color: @tw_red;
+  color: @tw_bg;
+}
+
+#language {
+  min-width: 39px;
+  margin: 0 4px;
+}
+
+#mode {
+  background-color: @tw_accent;
+  color: @tw_bg;
+  padding: 0 4px;
+  font-weight: bold;
+}
+
+#cpu,
+#backlight,
+#pulseaudio,
+#battery,
+#clock,
+#idle_inhibitor,
+#tray {
+  margin: 0 4px;
+}
+
+#cpu:hover,
+#backlight:hover,
+#pulseaudio:hover,
+#idle_inhibitor:hover,
+#clock:hover {
+  color: @tw_hover;
+}
+
+#idle_inhibitor.activated {
+  color: @tw_tan;
+}
+
+#pulseaudio.muted {
+  color: @tw_red;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: @foam;
+}
+
+#battery.warning {
+  color: @tw_tan;
+}
+
+#battery.critical {
+  color: @tw_red;
+}
+
+#custom-separator {
+  color: @tw_dim;
+  font-size: 12px;
+  margin: 0 5px;
+}
+
+#tray>.passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray>.needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* Animated media player */
+#custom-media-animation {
+  padding: 0 3px;
+}
+
+#custom-media-now-playing {
+  padding: 0 3px;
+  margin-right: 4px;
+}
+
+#custom-media-animation.playing {
+  color: @iris;
+  animation: media-pulse 1.2s ease-in-out infinite alternate;
+}
+
+#custom-media-animation.paused {
+  color: @gold;
+  animation: none;
+}
+
+#custom-media-animation.stopped {
+  color: @muted;
+  animation: none;
+}
+
+#custom-media-now-playing.playing {
+  color: @tw_fg;
+}
+
+#custom-media-now-playing.paused {
+  color: @muted;
+}
+
+#custom-media-now-playing:hover {
+  color: @tw_hover;
+}
+
+@keyframes media-pulse {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0.35;
+  }
+}
+
+/* Tooltips and calendar */
+tooltip {
+  background-color: @base;
+  border: 1px solid @highlight_med;
+  border-radius: 4px;
+}
+
+tooltip label {
+  color: @text;
+}

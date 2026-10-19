@@ -1,4 +1,6 @@
-require("options")
-require("keymaps")
-require("commands")
-require("pack")
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
+require("config.terminal")
+
+require("plugins")

@@ -1,0 +1,10 @@
+{
+  "workspace": {
+    "library": [
+      "/home/krishj/.config/hypr"
+    ]
+  },
+  "diagnostics": {
+    "globals": ["hl"]
+  }
+}

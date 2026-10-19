@@ -1,0 +1,25 @@
+font=Iosevka Nerd Font Mono 14
+background-color=#232136
+text-color=#E0DEF4
+
+border-color=#3E8FB0
+border-size=2
+border-radius=3
+
+padding=12
+margin=10
+
+default-timeout=5000
+
+icons=1
+max-icon-size=48
+
+layer=overlay
+
+[urgency=low]
+border-color=#6E6A86
+text-color=#908CAA
+
+[urgency=high]
+border-color=#EB6F92
+default-timeout=0

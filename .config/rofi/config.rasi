@@ -1,0 +1,14 @@
+configuration {
+    modi:                       "drun,run,window";
+    show-icons:                 true;
+    icon-theme:                 "Papirus-Dark";
+    display-drun:                "";
+    display-run:                 "";
+    display-window:              "";
+    drun-display-format:         "{name}";
+    disable-history:             false;
+    hide-scrollbar:              true;
+    sidebar-mode:                false;
+}
+
+@theme "~/.config/rofi/themes/rose-pine-moon.rasi"

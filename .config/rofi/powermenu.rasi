@@ -1,0 +1,24 @@
+@theme "~/.config/rofi/themes/rose-pine-moon.rasi"
+
+window {
+    width: 260px;
+    height: 260px;
+}
+
+listview {
+    lines: 5;
+    spacing: 2px;
+}
+
+element {
+    padding: 6px 10px;
+}
+
+mainbox {
+    padding: 8px;
+}
+
+inputbar {
+    padding: 6px 10px;
+    margin: 0 0 6px 0;
+}

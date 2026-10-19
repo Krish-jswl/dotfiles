@@ -1,0 +1,149 @@
+# Twilight: Helix theme
+# Palette from the custom nvim theme, accent #9b8d7f
+#
+# Install:
+#   mkdir -p ~/.config/helix/themes
+#   cp twilight.toml ~/.config/helix/themes/twilight.toml
+# Then in ~/.config/helix/config.toml:
+#   theme = "twilight"
+# (or try it live with  :theme twilight )
+
+# ─── UI ─────────────────────────────────────────────────────────────
+# For a transparent background, delete the bg from "ui.background"
+# (leave it as  "ui.background" = {}  ) and from "ui.gutter".
+"ui.background" = { bg = "bg" }
+"ui.gutter" = { bg = "bg" }
+"ui.text" = { fg = "fg" }
+"ui.text.focus" = { fg = "yellow_light", bg = "bg_pop" }
+"ui.text.inactive" = { fg = "comment" }
+"ui.text.directory" = { fg = "pale_green" }
+
+"ui.cursor" = { fg = "bg", bg = "fg_dim" }
+"ui.cursor.primary" = { fg = "bg", bg = "fg" }
+"ui.cursor.match" = { fg = "yellow_light", modifiers = ["bold", "underlined"] }
+"ui.cursor.primary.insert" = { fg = "bg", bg = "olive" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "lilac" }
+
+"ui.selection" = { bg = "bg_sel" }
+"ui.selection.primary" = { bg = "bg_sel" }
+"ui.cursorline.primary" = { bg = "bg_alt" }
+"ui.cursorline.secondary" = { bg = "bg_alt" }
+"ui.highlight" = { bg = "bg_sel" }
+
+"ui.linenr" = { fg = "gutter" }
+"ui.linenr.selected" = { fg = "yellow_light", bg = "bg_alt", modifiers = ["bold"] }
+
+"ui.statusline" = { fg = "fg", bg = "statusline" }
+"ui.statusline.inactive" = { fg = "gray", bg = "bg_alt" }
+"ui.statusline.normal" = { fg = "bg", bg = "accent", modifiers = ["bold"] }
+"ui.statusline.insert" = { fg = "bg", bg = "olive", modifiers = ["bold"] }
+"ui.statusline.select" = { fg = "bg", bg = "lilac", modifiers = ["bold"] }
+"ui.statusline.separator" = { fg = "border" }
+
+"ui.bufferline" = { fg = "gray", bg = "bg_alt" }
+"ui.bufferline.active" = { fg = "fg", bg = "bg_sel", modifiers = ["bold"] }
+"ui.bufferline.background" = { bg = "bg_alt" }
+
+"ui.popup" = { fg = "fg", bg = "bg_alt" }
+"ui.popup.info" = { fg = "fg", bg = "bg_alt" }
+"ui.help" = { fg = "fg", bg = "bg_alt" }
+"ui.menu" = { fg = "popup_fg", bg = "bg_pop" }
+"ui.menu.selected" = { fg = "fg", bg = "bg_sel" }
+"ui.menu.scroll" = { fg = "gutter", bg = "bg_alt" }
+"ui.window" = { fg = "border" }
+
+"ui.virtual.ruler" = { bg = "bg_alt" }
+"ui.virtual.whitespace" = { fg = "bg_pop" }
+"ui.virtual.indent-guide" = { fg = "bg_pop" }
+"ui.virtual.inlay-hint" = { fg = "gutter" }
+"ui.virtual.wrap" = { fg = "bg_pop" }
+"ui.virtual.jump-label" = { fg = "yellow", modifiers = ["bold"] }
+
+# ─── Syntax ─────────────────────────────────────────────────────────
+"comment" = { fg = "comment", modifiers = ["italic"] }
+"constant" = { fg = "fg_dim" }
+"constant.builtin" = { fg = "fg_dim" }
+"constant.numeric" = { fg = "tan" }
+"constant.character.escape" = { fg = "pale_green" }
+"string" = { fg = "olive" }
+"string.regexp" = { fg = "pale_green" }
+"string.special" = { fg = "pale_green" }
+"variable" = { fg = "gray" }
+"variable.builtin" = { fg = "fg_dim" }
+"variable.parameter" = { fg = "gray" }
+"variable.other.member" = { fg = "gray" }
+"function" = { fg = "lilac" }
+"function.builtin" = { fg = "lilac" }
+"function.macro" = { fg = "lilac" }
+"type" = { fg = "yellow_light" }
+"type.builtin" = { fg = "yellow_light" }
+"constructor" = { fg = "yellow_light" }
+"namespace" = { fg = "lilac" }
+"keyword" = { fg = "fg_dim" }
+"keyword.control" = { fg = "fg_dim" }
+"keyword.directive" = { fg = "gray" }
+"operator" = { fg = "yellow" }
+"punctuation" = { fg = "punct" }
+"punctuation.delimiter" = { fg = "punct" }
+"punctuation.bracket" = { fg = "punct" }
+"tag" = { fg = "lilac" }
+"attribute" = { fg = "gray" }
+"label" = { fg = "gray" }
+"special" = { fg = "fg_dim" }
+
+# ─── Markup ─────────────────────────────────────────────────────────
+"markup.heading" = { fg = "cream", modifiers = ["bold"] }
+"markup.heading.marker" = { fg = "tan" }
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "gray", modifiers = ["underlined"] }
+"markup.link.text" = { fg = "pale_green" }
+"markup.link.label" = { fg = "pale_green" }
+"markup.list" = { fg = "tan" }
+"markup.quote" = { fg = "comment", modifiers = ["italic"] }
+"markup.raw" = { fg = "olive" }
+
+# ─── Diff ───────────────────────────────────────────────────────────
+"diff.plus" = { fg = "olive" }
+"diff.minus" = { fg = "red" }
+"diff.delta" = { fg = "yellow" }
+"diff.delta.moved" = { fg = "lilac" }
+
+# ─── Diagnostics ────────────────────────────────────────────────────
+"error" = { fg = "red" }
+"warning" = { fg = "yellow" }
+"info" = { fg = "gray" }
+"hint" = { fg = "olive" }
+
+"diagnostic.error" = { underline = { color = "red", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "yellow", style = "curl" } }
+"diagnostic.info" = { underline = { color = "gray", style = "curl" } }
+"diagnostic.hint" = { underline = { color = "olive", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+# ─── Palette ────────────────────────────────────────────────────────
+[palette]
+bg = "#202020"
+bg_alt = "#262626"
+bg_pop = "#303030"
+bg_sel = "#454545"
+statusline = "#34383C"
+border = "#303030"
+fg = "#FEFEFE"
+fg_dim = "#cccccc"
+popup_fg = "#918988"
+punct = "#918988"
+gray = "#8B9698"
+gutter = "#676767"
+comment = "#6f7b68"
+accent = "#9b8d7f"
+tan = "#9b8d7f"
+lilac = "#AA9AAC"
+yellow = "#DEBF7C"
+yellow_light = "#E3D896"
+cream = "#FFFEDB"
+olive = "#A2A970"
+pale_green = "#C1C88D"
+red = "#C34143"

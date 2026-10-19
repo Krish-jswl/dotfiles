@@ -1,0 +1,126 @@
+* {
+    bg0     : #141415;
+    bg1     : #1c1c24;
+    bg2     : #252530;
+    fg0     : #cdcdcd;
+    fg1     : #c3c3d5;
+    comment : #606079;
+    blue    : #6e94b2;
+    blue2   : #8ba9c1;
+    green   : #7fa563;
+    red     : #d8647e;
+    yellow  : #f3be7c;
+    purple  : #787bab;
+
+    background-color:   transparent;
+    text-color:          @fg0;
+
+    font: "Iosevka Nerd Font 12";
+}
+
+window {
+    background-color: @bg0;
+    border:           2px;
+    border-color:     @purple;
+    border-radius:    0px;
+    width:            350px;
+    height:           350px;
+    location:         center;
+    padding:           0;
+}
+
+mainbox {
+    background-color: transparent;
+    padding: 10px;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    background-color: @bg1;
+    text-color:        @fg0;
+    border-radius:     0px;
+    padding:           8px 12px;
+    margin:            0 0 10px 0;
+    children: [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:        @purple;
+    font:              "Iosevka Nerd Font Bold 12";
+    padding:           0 8px 0 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color:        @fg0;
+    placeholder:       "Search...";
+    placeholder-color: @comment;
+}
+
+listview {
+    background-color: transparent;
+    columns:          1;
+    lines:            8;
+    spacing:          4px;
+    cycle:            true;
+    dynamic:           true;
+    scrollbar:         false;
+}
+
+element {
+    background-color: transparent;
+    text-color:        @fg1;
+    padding:           8px 12px;
+    border-radius:     0px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:        @fg1;
+}
+
+element selected.normal {
+    background-color: transparent;
+    text-color:        @purple2;
+    border:            1px;
+    border-color:      @purple;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color:        @fg1;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:        inherit;
+    vertical-align:    0.5;
+}
+
+element-icon {
+    background-color: transparent;
+    size:               24px;
+    padding:            0 10px 0 0;
+}
+
+message {
+    background-color: @bg1;
+    border-radius:     0px;
+    padding:           8px;
+    margin:            0 0 10px 0;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:        @fg0;
+}
+
+error-message {
+    background-color: @bg0;
+    text-color:        @red;
+    border:            2px;
+    border-color:      @red;
+    border-radius:     0px;
+    padding:           12px;
+}

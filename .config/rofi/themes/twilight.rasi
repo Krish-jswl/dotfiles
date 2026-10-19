@@ -1,0 +1,134 @@
+/* Twilight rofi theme
+ * Palette from the custom nvim theme, accent/border #9b8d7f
+ *
+ * Install:
+ *   mkdir -p ~/.config/rofi/themes
+ *   cp twilight.rasi ~/.config/rofi/themes/twilight.rasi
+ *   rofi -show drun -theme twilight
+ * Or set it permanently in ~/.config/rofi/config.rasi:
+ *   @theme "twilight"
+ */
+
+* {
+    bg0     : #202020;
+    bg1     : #262626;
+    bg2     : #303030;
+    border  : #9b8d7f;
+    fg0     : #FEFEFE;
+    fg1     : #cccccc;
+    comment : #6f7b68;
+    accent  : #9b8d7f;
+    red     : #C34143;
+    yellow  : #DEBF7C;
+
+    background-color:   transparent;
+    text-color:          @fg0;
+
+    font: "Iosevka Nerd Font 12";
+}
+
+window {
+    background-color: @bg0;
+    border:           1px;
+    border-color:     @border;
+    border-radius:    0px;
+    width:            400px;
+    location:         center;
+    padding:           0;
+}
+
+mainbox {
+    background-color: transparent;
+    padding: 10px;
+    children: [ "inputbar", "listview" ];
+}
+
+inputbar {
+    background-color: @bg1;
+    text-color:        @fg0;
+    border-radius:     4px;
+    padding:           8px 12px;
+    margin:            0 0 10px 0;
+    children: [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:        @accent;
+    font:               "Iosevka Nerd Font Bold 12";
+    padding:            0 8px 0 0;
+}
+
+entry {
+    background-color: transparent;
+    text-color:        @fg0;
+    placeholder:        "Search...";
+    placeholder-color:  @comment;
+}
+
+listview {
+    background-color: transparent;
+    columns:            1;
+    lines:               8;
+    spacing:             4px;
+    cycle:                true;
+    dynamic:              true;
+    scrollbar:            false;
+}
+
+element {
+    background-color: transparent;
+    text-color:        @fg1;
+    padding:            8px 12px;
+    border-radius:      4px;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:        @fg1;
+}
+
+element selected.normal {
+    background-color: @bg2;
+    text-color:        @accent;
+    border:            1px;
+    border-color:      @accent;
+}
+
+element alternate.normal {
+    background-color: transparent;
+    text-color:        @fg1;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:        inherit;
+    vertical-align:     0.5;
+}
+
+element-icon {
+    background-color: transparent;
+    size:               24px;
+    padding:            0 10px 0 0;
+}
+
+message {
+    background-color: @bg1;
+    border-radius:      4px;
+    padding:             8px;
+    margin:              0 0 10px 0;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:         @fg0;
+}
+
+error-message {
+    background-color: @bg0;
+    text-color:         @red;
+    border:              2px;
+    border-color:        @red;
+    border-radius:       6px;
+    padding:             12px;
+}
