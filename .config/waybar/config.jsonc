@@ -4,17 +4,13 @@
   "height": 26,
   "reload_style_on_change": true,
   "modules-left": [
-    "hyprland/workspaces",
+    "sway/workspaces",
     "custom/separator",
     "group/media",
-    "custom/separator",
+    "custom/separator"
   ],
   "modules-center": [],
   "modules-right": [
-    "custom/separator",
-    "network",
-    "custom/separator",
-    "bluetooth",
     "custom/separator",
     "battery",
     "custom/separator",
@@ -30,7 +26,7 @@
     "custom/separator",
     "clock"
   ],
-  "hyprland/workspaces": {
+  "sway/workspaces": {
     "format": "{icon}",
     "format-icons": {
       "1": "1",
@@ -45,17 +41,23 @@
       "10": "10",
       "urgent": "!"
     },
-    "all-outputs": false,
-    "show-special": false,
-    "move-to-monitor": false,
-    "on-scroll-up": "hyprctl dispatch workspace e-1",
-    "on-scroll-down": "hyprctl dispatch workspace e+1",
-    "on-click": "activate",
     "persistent-workspaces": {
-      "*": 10
-    }
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": [],
+      "6": [],
+      "7": [],
+      "8": [],
+      "9": [],
+      "10": []
+    },
+    "all-outputs": false,
+    "disable-scroll": true,
+    "on-click": "activate"
   },
-  "hyprland/window": {
+  "sway/window": {
     "format": "{title}",
     "max-length": 60,
     "separate-outputs": true,
@@ -65,11 +67,11 @@
       "(.*) - Visual Studio Code": "󰨞 $1"
     }
   },
-  "hyprland/language": {
+  "sway/language": {
     "format": "[{short}]",
-    "on-click": "hyprctl switchxkblayout all next"
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
   },
-  "hyprland/submap": {
+  "sway/submap": {
     "format": " {}",
     "tooltip": false
   },
@@ -223,11 +225,11 @@
       "mode-mon-col": 3,
       "on-scroll": 1,
       "format": {
-        "months": "<span color='#C4A7E7'><b>{}</b></span>",
-        "days": "<span color='#E0DEF4'>{}</span>",
-        "weeks": "<span color='#9CCFD8'><b>W{}</b></span>",
-        "weekdays": "<span color='#F6C177'><b>{}</b></span>",
-        "today": "<span background='#EB6F92' color='#232136'><b>{}</b></span>"
+        "months": "<span color='#b294bb'><b>{}</b></span>",
+        "days": "<span color='#c5c8c6'>{}</span>",
+        "weeks": "<span color='#8abeb7'><b>W{}</b></span>",
+        "weekdays": "<span color='#f0c674'><b>{}</b></span>",
+        "today": "<span background='#cc6666' color='#1d1f21'><b>{}</b></span>"
       }
     }
   }

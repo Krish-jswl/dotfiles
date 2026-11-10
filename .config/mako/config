@@ -1,8 +1,8 @@
-font=Iosevka Nerd Font Mono 14
-background-color=#232136
-text-color=#E0DEF4
+font=Iosevka Nerd Font 16
+background-color=#1d1f21
+text-color=#c5c8c6
 
-border-color=#3E8FB0
+border-color=#81a2be
 border-size=2
 border-radius=3
 
@@ -17,9 +17,9 @@ max-icon-size=48
 layer=overlay
 
 [urgency=low]
-border-color=#6E6A86
-text-color=#908CAA
+border-color=#969896
+text-color=#969896
 
 [urgency=high]
-border-color=#EB6F92
+border-color=#cc6666
 default-timeout=0

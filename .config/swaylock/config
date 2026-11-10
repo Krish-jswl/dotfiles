@@ -1,0 +1,53 @@
+# Tomorrow Night, accent blue (#81a2be) (requires swaylock-effects)
+
+# Screenshot + blur (lighter, rendered at half resolution)
+screenshots
+effect-blur=7x3
+effect-scale=0.5
+effect-vignette=0.5:0.5
+
+# fade-in and grace removed: they cause the transparent flash
+# fade-in=0.25
+# grace=1
+
+# Clock
+clock
+timestr=%H:%M
+datestr=%a, %b %d
+font=Iosevka Nerd Font
+font-size=120
+
+# Base color
+color=1d1f21
+
+# Ring / indicator
+indicator
+indicator-radius=160
+indicator-thickness=8
+ring-color=373b41
+ring-ver-color=81a2be
+ring-wrong-color=cc6666
+ring-clear-color=f0c674
+
+inside-color=1d1f21aa
+inside-ver-color=1d1f21aa
+inside-wrong-color=1d1f21aa
+inside-clear-color=1d1f21aa
+
+text-color=c5c8c6
+text-ver-color=8abeb7
+text-wrong-color=cc6666
+text-clear-color=f0c674
+text-caps-lock-color=f0c674
+
+line-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+line-clear-color=00000000
+separator-color=00000000
+
+key-hl-color=8abeb7
+bs-hl-color=cc6666
+
+layout-bg-color=282a2e
+layout-text-color=c5c8c6

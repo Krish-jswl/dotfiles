@@ -1,29 +1,32 @@
-/* Rosé Pine Moon palette */
-@define-color base #232136;
-@define-color surface #2A273F;
-@define-color overlay #393552;
-@define-color muted #6E6A86;
-@define-color subtle #908CAA;
-@define-color text #E0DEF4;
-@define-color love #EB6F92;
-@define-color gold #F6C177;
-@define-color rose #EA9A97;
-@define-color pine #3E8FB0;
-@define-color foam #9CCFD8;
-@define-color iris #C4A7E7;
-@define-color highlight_low #2A283E;
-@define-color highlight_med #44415A;
-@define-color highlight_high #56526E;
+/* Tomorrow Night */
+@define-color base #1d1f21;
+@define-color surface #282a2e;
+@define-color overlay #373b41;
+@define-color muted #969896;
+@define-color subtle #b4b7b4;
+@define-color text #c5c8c6;
+
+@define-color red #cc6666;
+@define-color orange #de935f;
+@define-color yellow #f0c674;
+@define-color green #b5bd68;
+@define-color aqua #8abeb7;
+@define-color blue #81a2be;
+@define-color purple #b294bb;
+
+@define-color highlight_low #282a2e;
+@define-color highlight_med #373b41;
+@define-color highlight_high #4d5057;
 
 /* Semantic aliases */
 @define-color tw_bg @base;
 @define-color tw_fg @text;
 @define-color tw_dim @muted;
 @define-color tw_border @surface;
-@define-color tw_accent @iris;
-@define-color tw_hover @rose;
-@define-color tw_tan @gold;
-@define-color tw_red @love;
+@define-color tw_accent @blue;
+@define-color tw_hover @yellow;
+@define-color tw_tan @orange;
+@define-color tw_red @red;
 
 * {
   font-family: "Iosevka Nerd Font";
@@ -87,14 +90,14 @@ window#waybar {
 
 #workspaces button.focused,
 #workspaces button.active {
-  background-color: @pine;
-  color: @tw_bg;
-  border-bottom: 2px solid @pine;
+  background-color: @base;
+  color: @tw_accent;
+  border-bottom: 2px solid @tw_accent;
 }
 
 #workspaces button.urgent {
   background-color: @tw_red;
-  color: @tw_bg;
+  color: @base;
 }
 
 #language {
@@ -137,11 +140,11 @@ window#waybar {
 
 #battery.charging,
 #battery.plugged {
-  color: @foam;
+  color: @aqua;
 }
 
 #battery.warning {
-  color: @tw_tan;
+  color: @yellow;
 }
 
 #battery.critical {
@@ -173,12 +176,12 @@ window#waybar {
 }
 
 #custom-media-animation.playing {
-  color: @iris;
+  color: @purple;
   animation: media-pulse 1.2s ease-in-out infinite alternate;
 }
 
 #custom-media-animation.paused {
-  color: @gold;
+  color: @yellow;
   animation: none;
 }
 
